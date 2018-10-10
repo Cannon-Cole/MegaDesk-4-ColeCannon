@@ -1,4 +1,4 @@
-12,24,Select,5 Days,1
+12,24,Pine,5 Days,1
 12,24,Oak,3 Days,2
 12,24,Rosewood,3 Days,2
 12,24,Rosewood,7 Days,2
@@ -19,3 +19,13 @@
 30,35,Laminate,3 Days,2
 30,35,Laminate,3 Days,2
 30,35,Veneer,3 Days,2
+12,24,Select,,0
+20,25,Laminate,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,
+20,25,Pine,5 Days,2,

@@ -42,6 +42,7 @@
             this.RushCombo = new System.Windows.Forms.ComboBox();
             this.DrawerUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.QuoteAdded = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DrawerUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,11 +193,24 @@
             this.label3.Text = "Number of Drawers";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // QuoteAdded
+            // 
+            this.QuoteAdded.AutoSize = true;
+            this.QuoteAdded.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuoteAdded.ForeColor = System.Drawing.Color.Green;
+            this.QuoteAdded.Location = new System.Drawing.Point(472, 286);
+            this.QuoteAdded.Name = "QuoteAdded";
+            this.QuoteAdded.Size = new System.Drawing.Size(129, 25);
+            this.QuoteAdded.TabIndex = 17;
+            this.QuoteAdded.Text = "Quote Added";
+            this.QuoteAdded.Visible = false;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.QuoteAdded);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.DrawerUpDown);
             this.Controls.Add(this.label2);
@@ -236,5 +250,6 @@
         private System.Windows.Forms.ComboBox RushCombo;
         private System.Windows.Forms.NumericUpDown DrawerUpDown;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label QuoteAdded;
     }
 }

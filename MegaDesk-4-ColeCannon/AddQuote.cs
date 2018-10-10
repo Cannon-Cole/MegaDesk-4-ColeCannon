@@ -37,9 +37,11 @@ namespace MegaDesk_4_ColeCannon
             StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
             try
             {
-                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.SelectedItem + "," + RushCombo.SelectedItem + "," + DrawerUpDown.Value);
+                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + RushCombo.Text + "," + DrawerUpDown.Value + ",");
+
+                QuoteAdded.Visible = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("File write issue: " + ex.Message);
             }
@@ -47,6 +49,97 @@ namespace MegaDesk_4_ColeCannon
             {
                 wr.Close();
             }
+        }
+
+        public int getPrice()
+        {
+            int price = 200;
+            price += surfaceAreaPrice(HeightInput.Text, HeightInput.Text);
+            price += getMaterialPrice(MaterialCombo.Text);
+            price += getRushPrice(RushCombo.Text);
+            price += getDrawerPrce(DrawerUpDown.Value);
+
+            return price;
+        }
+
+        public int calculateSurfaceArea(string height, string width)
+        {
+            return Int32.Parse(height) * Int32.Parse(width);
+        }
+
+        public int surfaceAreaPrice(string height, string width)
+        {
+            int surfaceArea = calculateSurfaceArea(height, width);
+
+            if (surfaceArea - 1000 > 0)
+                return surfaceArea - 1000;
+            else
+                return 0;
+        }
+
+        public int getMaterialPrice(string material)
+        {
+            switch (material)
+            {
+                case "Oak":
+                    return 200;
+                case "Laminate":
+                    return 100;
+                case "Pine":
+                    return 50;
+                case "Rosewood":
+                    return 300;
+                case "Veneer":
+                    return 125;
+                default:
+                    return 0;
+            }
+        }
+
+        public int getRushPrice(string rush)
+        {
+
+            int days = Int32.Parse(rush.Split(null)[0]);
+
+            int[,] rushCost = {
+                { 60, 70, 80 },
+                { 40, 50, 60 },
+                { 30, 35, 40 }
+            };
+
+            int index;
+            int area = calculateSurfaceArea(HeightInput.Text, HeightInput.Text);
+
+            if (area > 2000)
+            {
+                index = 2;
+            }
+            else if (area > 1000)
+            {
+                index = 1;
+            }
+            else
+            {
+                index = 0;
+            }
+
+            switch (days)
+            {
+                case 3:
+                    return rushCost[0, index];
+                case 5:
+                    return rushCost[1, index]; ;
+                case 7:
+                    return rushCost[2, index]; ;
+                default:
+                    return 0;
+            }
+
+        }
+
+        public int getDrawerPrice(int numOfDrawers)
+        {
+            return numOfDrawers * 50;
         }
 
         private void CancelQuote_Click(object sender, EventArgs e)
@@ -129,7 +222,7 @@ namespace MegaDesk_4_ColeCannon
                 WidthInput.Text = convert;
                 WidthInput.SelectionStart = WidthInput.Text.Length;
             }
-            
+
             try
             {
                 width = System.Convert.ToInt32(WidthInput.Text);
