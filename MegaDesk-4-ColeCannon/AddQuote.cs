@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace MegaDesk_4_ColeCannon
 {
     public partial class AddQuote : Form
     {
+        List<string> materialList = new List<string>();
+
         public AddQuote()
         {
             InitializeComponent();
@@ -19,12 +22,31 @@ namespace MegaDesk_4_ColeCannon
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
+            materialList.Add("Select");
 
+            foreach (var name in Enum.GetNames(typeof(Desk.Materials)))
+            {
+                materialList.Add(name);
+            }
+
+            MaterialCombo.DataSource = materialList;
         }
 
         private void AddNewQuoteAccept_Click(object sender, EventArgs e)
         {
-
+            StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk - 4 - ColeCannon");
+            try
+            {
+                wr.WriteLine();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("File open issue: " + ex.Message);
+            }
+            finally
+            {
+                wr.Close();
+            }
         }
 
         private void CancelQuote_Click(object sender, EventArgs e)
@@ -152,6 +174,11 @@ namespace MegaDesk_4_ColeCannon
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

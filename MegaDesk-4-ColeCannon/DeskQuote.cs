@@ -8,5 +8,6 @@ namespace MegaDesk_4_ColeCannon
 {
     class DeskQuote
     {
+       
     }
 }

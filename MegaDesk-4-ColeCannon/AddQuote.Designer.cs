@@ -36,7 +36,7 @@
             this.WidthInputErrorLabel = new System.Windows.Forms.Label();
             this.HeightInput = new System.Windows.Forms.TextBox();
             this.WidthInput = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.MaterialCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -114,7 +114,7 @@
             this.HeightInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeightInput.Location = new System.Drawing.Point(201, 39);
             this.HeightInput.Name = "HeightInput";
-            this.HeightInput.Size = new System.Drawing.Size(100, 38);
+            this.HeightInput.Size = new System.Drawing.Size(150, 38);
             this.HeightInput.TabIndex = 9;
             this.HeightInput.TextChanged += new System.EventHandler(this.HeightInput_TextChanged);
             this.HeightInput.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInputValidation);
@@ -124,25 +124,20 @@
             this.WidthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WidthInput.Location = new System.Drawing.Point(437, 39);
             this.WidthInput.Name = "WidthInput";
-            this.WidthInput.Size = new System.Drawing.Size(100, 38);
+            this.WidthInput.Size = new System.Drawing.Size(150, 38);
             this.WidthInput.TabIndex = 10;
             this.WidthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WidthValidation);
             // 
-            // comboBox1
+            // MaterialCombo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
-            this.comboBox1.Location = new System.Drawing.Point(201, 145);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 39);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Text = "Select";
+            this.MaterialCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaterialCombo.FormattingEnabled = true;
+            this.MaterialCombo.Location = new System.Drawing.Point(201, 136);
+            this.MaterialCombo.Name = "MaterialCombo";
+            this.MaterialCombo.Size = new System.Drawing.Size(150, 39);
+            this.MaterialCombo.TabIndex = 11;
+            this.MaterialCombo.Text = "Select";
+            this.MaterialCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -172,9 +167,9 @@
             "3 Days",
             "5 Days",
             "7 Days"});
-            this.comboBox2.Location = new System.Drawing.Point(437, 145);
+            this.comboBox2.Location = new System.Drawing.Point(437, 136);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 39);
+            this.comboBox2.Size = new System.Drawing.Size(150, 39);
             this.comboBox2.TabIndex = 13;
             this.comboBox2.Text = "Select";
             // 
@@ -183,7 +178,7 @@
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(201, 240);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 38);
+            this.numericUpDown1.Size = new System.Drawing.Size(150, 38);
             this.numericUpDown1.TabIndex = 15;
             // 
             // label3
@@ -207,7 +202,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.MaterialCombo);
             this.Controls.Add(this.WidthInput);
             this.Controls.Add(this.HeightInput);
             this.Controls.Add(this.WidthInputErrorLabel);
@@ -235,7 +230,7 @@
         private System.Windows.Forms.Label WidthInputErrorLabel;
         private System.Windows.Forms.TextBox HeightInput;
         private System.Windows.Forms.TextBox WidthInput;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox MaterialCombo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
