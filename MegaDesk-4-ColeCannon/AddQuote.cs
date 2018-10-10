@@ -37,7 +37,7 @@ namespace MegaDesk_4_ColeCannon
             StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
             try
             {
-                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + RushCombo.Text + "," + DrawerUpDown.Value + ",");
+                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + RushCombo.Text + "," + DrawerUpDown.Value + "," + getPrice());
 
                 QuoteAdded.Visible = true;
             }
@@ -57,7 +57,7 @@ namespace MegaDesk_4_ColeCannon
             price += surfaceAreaPrice(HeightInput.Text, HeightInput.Text);
             price += getMaterialPrice(MaterialCombo.Text);
             price += getRushPrice(RushCombo.Text);
-            price += getDrawerPrce(DrawerUpDown.Value);
+            price += getDrawerPrice((int)DrawerUpDown.Value);
 
             return price;
         }

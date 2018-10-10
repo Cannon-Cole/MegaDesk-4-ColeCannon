@@ -52,6 +52,7 @@
             this.SearchDisplay.Size = new System.Drawing.Size(575, 249);
             this.SearchDisplay.TabIndex = 12;
             this.SearchDisplay.Text = "";
+            this.SearchDisplay.TextChanged += new System.EventHandler(this.SearchDisplay_TextChanged);
             // 
             // SearchTitle
             // 

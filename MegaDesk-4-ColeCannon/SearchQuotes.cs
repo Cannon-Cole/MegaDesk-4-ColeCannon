@@ -59,7 +59,7 @@ namespace MegaDesk_4_ColeCannon
 
                     if (quoteProperties[2] == (string)SearchMaterialCombo.SelectedItem)
                     {
-                        SearchDisplay.Text += "Height: " + quoteProperties[0] + " Width: " + quoteProperties[1] + " Material: " + quoteProperties[2] + " Rush: " + quoteProperties[3] + " Drawers: " + quoteProperties[4] + "\n";
+                        SearchDisplay.Text += DeskQuote.displayQuote(quoteProperties);                       
                     }
                 }
             }

@@ -29,8 +29,8 @@ namespace MegaDesk_4_ColeCannon
                 {
                     string quote = re.ReadLine();
                     string[] quoteProperties = quote.Split(',');
-        
-                        SearchDisplay.Text += "Height: " + quoteProperties[0] + " Width: " + quoteProperties[1] + " Material: " + quoteProperties[2] + " Rush: " + quoteProperties[3] + " Drawers: " + quoteProperties[4] + "\n";                   
+
+                    SearchDisplay.Text += DeskQuote.displayQuote(quoteProperties);
                 }
             }
             catch (Exception ex)
@@ -51,6 +51,11 @@ namespace MegaDesk_4_ColeCannon
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchDisplay_TextChanged(object sender, EventArgs e)
         {
 
         }
