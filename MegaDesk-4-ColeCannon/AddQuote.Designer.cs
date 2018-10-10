@@ -39,10 +39,10 @@
             this.MaterialCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.RushCombo = new System.Windows.Forms.ComboBox();
+            this.DrawerUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawerUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // AddNewQuoteAcceptBtn
@@ -159,27 +159,27 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Rush";
             // 
-            // comboBox2
+            // RushCombo
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.RushCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RushCombo.FormattingEnabled = true;
+            this.RushCombo.Items.AddRange(new object[] {
             "3 Days",
             "5 Days",
             "7 Days"});
-            this.comboBox2.Location = new System.Drawing.Point(437, 136);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 39);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.Text = "Select";
+            this.RushCombo.Location = new System.Drawing.Point(437, 136);
+            this.RushCombo.Name = "RushCombo";
+            this.RushCombo.Size = new System.Drawing.Size(150, 39);
+            this.RushCombo.TabIndex = 13;
+            this.RushCombo.Text = "Select";
             // 
-            // numericUpDown1
+            // DrawerUpDown
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(201, 240);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 38);
-            this.numericUpDown1.TabIndex = 15;
+            this.DrawerUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DrawerUpDown.Location = new System.Drawing.Point(201, 240);
+            this.DrawerUpDown.Name = "DrawerUpDown";
+            this.DrawerUpDown.Size = new System.Drawing.Size(150, 38);
+            this.DrawerUpDown.TabIndex = 15;
             // 
             // label3
             // 
@@ -198,9 +198,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.DrawerUpDown);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.RushCombo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MaterialCombo);
             this.Controls.Add(this.WidthInput);
@@ -214,7 +214,7 @@
             this.Name = "AddQuote";
             this.Text = "AddQuote";
             this.Load += new System.EventHandler(this.AddQuote_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DrawerUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,8 +233,8 @@
         private System.Windows.Forms.ComboBox MaterialCombo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox RushCombo;
+        private System.Windows.Forms.NumericUpDown DrawerUpDown;
         private System.Windows.Forms.Label label3;
     }
 }

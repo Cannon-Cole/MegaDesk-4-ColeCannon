@@ -30,16 +30,16 @@
         {
             this.ViewQuotesBackBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.SearchTitle = new System.Windows.Forms.Label();
+            this.SearchMaterialCombo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SearchDisplay = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ViewQuotesBackBtn
             // 
             this.ViewQuotesBackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewQuotesBackBtn.Location = new System.Drawing.Point(291, 340);
+            this.ViewQuotesBackBtn.Location = new System.Drawing.Point(157, 355);
             this.ViewQuotesBackBtn.Name = "ViewQuotesBackBtn";
             this.ViewQuotesBackBtn.Size = new System.Drawing.Size(195, 50);
             this.ViewQuotesBackBtn.TabIndex = 3;
@@ -50,37 +50,13 @@
             // SearchBtn
             // 
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.Location = new System.Drawing.Point(291, 123);
+            this.SearchBtn.Location = new System.Drawing.Point(385, 348);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(195, 65);
             this.SearchBtn.TabIndex = 4;
             this.SearchBtn.Text = "&Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(167, 44);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(432, 40);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "label2";
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // SearchTitle
             // 
@@ -92,15 +68,44 @@
             this.SearchTitle.Text = "Search";
             this.SearchTitle.Click += new System.EventHandler(this.label3_Click);
             // 
+            // SearchMaterialCombo
+            // 
+            this.SearchMaterialCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchMaterialCombo.FormattingEnabled = true;
+            this.SearchMaterialCombo.Location = new System.Drawing.Point(13, 95);
+            this.SearchMaterialCombo.Name = "SearchMaterialCombo";
+            this.SearchMaterialCombo.Size = new System.Drawing.Size(150, 39);
+            this.SearchMaterialCombo.TabIndex = 12;
+            this.SearchMaterialCombo.Text = "Select";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 42);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Material";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // SearchDisplay
+            // 
+            this.SearchDisplay.AutoSize = true;
+            this.SearchDisplay.Location = new System.Drawing.Point(345, 95);
+            this.SearchDisplay.Name = "SearchDisplay";
+            this.SearchDisplay.Size = new System.Drawing.Size(35, 13);
+            this.SearchDisplay.TabIndex = 14;
+            this.SearchDisplay.Text = "label1";
+            // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SearchDisplay);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.SearchMaterialCombo);
             this.Controls.Add(this.SearchTitle);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.ViewQuotesBackBtn);
             this.Name = "SearchQuotes";
@@ -115,9 +120,9 @@
 
         private System.Windows.Forms.Button ViewQuotesBackBtn;
         private System.Windows.Forms.Button SearchBtn;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label SearchTitle;
+        private System.Windows.Forms.ComboBox SearchMaterialCombo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SearchDisplay;
     }
 }

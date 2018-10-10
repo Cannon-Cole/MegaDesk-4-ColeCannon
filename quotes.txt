@@ -1,0 +1,8 @@
+12,24,Select,5 Days,1
+12,24,Oak,3 Days,2
+12,24,Rosewood,3 Days,2
+12,24,Rosewood,7 Days,2
+12,24,Rosewood,7 Days,1
+25,24,Rosewood,7 Days,1
+25,55,Rosewood,7 Days,1
+25,55,Rosewood,7 Days,1

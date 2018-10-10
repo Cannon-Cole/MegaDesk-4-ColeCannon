@@ -13,7 +13,7 @@ namespace MegaDesk_4_ColeCannon
 {
     public partial class AddQuote : Form
     {
-        List<string> materialList = new List<string>();
+        public List<string> materialList = new List<string>();
 
         public AddQuote()
         {
@@ -34,10 +34,10 @@ namespace MegaDesk_4_ColeCannon
 
         private void AddNewQuoteAccept_Click(object sender, EventArgs e)
         {
-            StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk - 4 - ColeCannon");
+            StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
             try
             {
-                wr.WriteLine();
+                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.SelectedItem + "," + RushCombo.SelectedItem + "," + DrawerUpDown.Value);
             }
             catch(Exception ex)
             {
