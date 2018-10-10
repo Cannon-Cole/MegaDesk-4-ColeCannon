@@ -6,3 +6,16 @@
 25,24,Rosewood,7 Days,1
 25,55,Rosewood,7 Days,1
 25,55,Rosewood,7 Days,1
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Rosewood,3 Days,2
+30,35,Oak,3 Days,2
+30,35,Oak,3 Days,2
+30,35,Laminate,3 Days,2
+30,35,Laminate,3 Days,2
+30,35,Veneer,3 Days,2

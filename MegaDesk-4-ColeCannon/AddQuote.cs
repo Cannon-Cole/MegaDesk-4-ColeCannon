@@ -41,7 +41,7 @@ namespace MegaDesk_4_ColeCannon
             }
             catch(Exception ex)
             {
-                Console.WriteLine("File open issue: " + ex.Message);
+                Console.WriteLine("File write issue: " + ex.Message);
             }
             finally
             {

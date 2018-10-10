@@ -48,16 +48,28 @@ namespace MegaDesk_4_ColeCannon
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             StreamReader re = new StreamReader(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt");
+            SearchDisplay.Text = "";
 
             try
             {
-                string quote = re.ReadLine();
-                string[] quoteProperties = quote.Split(',');
-
-                if (quoteProperties[2] == SearchMaterialCombo.SelectedItem)
+                while (!re.EndOfStream)
                 {
-                    SearchDisplay.Text = "Height: " + quoteProperties[0] + "Width: " + quoteProperties[1] + "Material: " +
+                    string quote = re.ReadLine();
+                    string[] quoteProperties = quote.Split(',');
+
+                    if (quoteProperties[2] == (string)SearchMaterialCombo.SelectedItem)
+                    {
+                        SearchDisplay.Text += "Height: " + quoteProperties[0] + " Width: " + quoteProperties[1] + " Material: " + quoteProperties[2] + " Rush: " + quoteProperties[3] + " Drawers: " + quoteProperties[4] + "\n";
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("File read issue: " + ex.Message);
+            }
+            finally
+            {
+                re.Close();
             }
         }
 
