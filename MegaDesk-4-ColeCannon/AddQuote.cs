@@ -36,19 +36,7 @@ namespace MegaDesk_4_ColeCannon
 
         private void AddNewQuoteAccept_Click(object sender, EventArgs e)
         {
-            bool validated = false;
-
-            bool name = checkName();
-            bool drawers = checkDrawers();
-            bool height = checkHeight();
-            bool width = checkWidth();
-            bool material = checkMaterial();
-            bool rush = checkRush();
-
-            if(name && drawers && height && width && material && rush)
-            {
-                validated = true;
-            }
+            bool validated = validateFields();
 
             if(validated)
             {
@@ -78,6 +66,25 @@ namespace MegaDesk_4_ColeCannon
             {
                 wr.Close();
             }
+            }
+        }
+
+        private bool validateFields()
+        {
+            bool name = checkName();
+            bool drawers = checkDrawers();
+            bool height = checkHeight();
+            bool width = checkWidth();
+            bool material = checkMaterial();
+            bool rush = checkRush();
+
+            if (name && drawers && height && width && material && rush)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -486,14 +493,9 @@ namespace MegaDesk_4_ColeCannon
             //MaterialCombo.Items.Remove("Select");
         }
 
-        private void HeightInput_TextChanged_1(object sender, EventArgs e)
+        private void CheckValidation(object sender, EventArgs e)
         {
-
-        }
-
-        private void WidthInput_TextChanged(object sender, EventArgs e)
-        {
-
+            bool nothing = validateFields();
         }
     }
 }

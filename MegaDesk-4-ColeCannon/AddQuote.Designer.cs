@@ -124,7 +124,7 @@
             this.HeightInput.Name = "HeightInput";
             this.HeightInput.Size = new System.Drawing.Size(150, 38);
             this.HeightInput.TabIndex = 3;
-            this.HeightInput.TextChanged += new System.EventHandler(this.HeightInput_TextChanged_1);
+            this.HeightInput.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // WidthInput
             // 
@@ -133,7 +133,7 @@
             this.WidthInput.Name = "WidthInput";
             this.WidthInput.Size = new System.Drawing.Size(150, 38);
             this.WidthInput.TabIndex = 4;
-            this.WidthInput.TextChanged += new System.EventHandler(this.WidthInput_TextChanged);
+            this.WidthInput.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // MaterialCombo
             // 
@@ -144,6 +144,7 @@
             this.MaterialCombo.Name = "MaterialCombo";
             this.MaterialCombo.Size = new System.Drawing.Size(150, 39);
             this.MaterialCombo.TabIndex = 5;
+            this.MaterialCombo.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // label1
             // 
@@ -180,6 +181,7 @@
             this.RushCombo.Size = new System.Drawing.Size(150, 39);
             this.RushCombo.TabIndex = 6;
             this.RushCombo.SelectedIndexChanged += new System.EventHandler(this.RushCombo_SelectedIndexChanged);
+            this.RushCombo.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // label3
             // 
@@ -215,6 +217,7 @@
             this.CustomerNameBox.Name = "CustomerNameBox";
             this.CustomerNameBox.Size = new System.Drawing.Size(150, 38);
             this.CustomerNameBox.TabIndex = 1;
+            this.CustomerNameBox.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // CustomerNameTitle
             // 
@@ -244,6 +247,7 @@
             this.DrawerCombo.Name = "DrawerCombo";
             this.DrawerCombo.Size = new System.Drawing.Size(150, 39);
             this.DrawerCombo.TabIndex = 2;
+            this.DrawerCombo.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // DrawerErrorLabel
             // 
