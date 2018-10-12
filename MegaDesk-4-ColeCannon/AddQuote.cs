@@ -21,10 +21,11 @@ namespace MegaDesk_4_ColeCannon
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
-        {
+        {       
+
             materialList.Add("Select");
 
-            foreach (var name in Enum.GetNames(typeof(Desk.Materials)))
+            foreach (var name in Enum.GetNames(typeof(Materials)))
             {
                 materialList.Add(name);
             }
@@ -37,9 +38,24 @@ namespace MegaDesk_4_ColeCannon
             StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
             try
             {
-                wr.WriteLine(HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + RushCombo.Text + "," + DrawerUpDown.Value + "," + getPrice());
+                string rushtime = "None";
+
+                if (RushCombo.Text == "None")
+                {
+                    rushtime = "None";
+                }
+                else
+                {
+                    rushtime = RushCombo.Text.Split(null)[0];
+                }
+
+                wr.WriteLine(CustomerNameBox.Text + "," + DateTime.Now.ToString("dd/MM/yyyy") + "," + HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + rushtime + "," + DrawerSelect.Text + "," + getPrice());
 
                 QuoteAdded.Visible = true;
+              
+                NotificationTimer.Enabled = true;
+                NotificationTimer.Tick += NotificationTimer_Tick;
+
             }
             catch (Exception ex)
             {
@@ -51,13 +67,18 @@ namespace MegaDesk_4_ColeCannon
             }
         }
 
+        private void NotificationTimer_Tick(object sender, EventArgs e)
+        {
+            QuoteAdded.Visible = false;
+        }
+
         public int getPrice()
         {
             int price = 200;
             price += surfaceAreaPrice(HeightInput.Text, HeightInput.Text);
             price += getMaterialPrice(MaterialCombo.Text);
             price += getRushPrice(RushCombo.Text);
-            price += getDrawerPrice((int)DrawerUpDown.Value);
+            price += getDrawerPrice((int.Parse(DrawerSelect.Text)));
 
             return price;
         }
@@ -79,10 +100,26 @@ namespace MegaDesk_4_ColeCannon
 
         public int getMaterialPrice(string material)
         {
+            //returns price of material selected
+            string[] names = Enum.GetNames(typeof(Materials));
+            for (int i = 0; i < names.Length; i++)
+            {
+                if(material == names[i])
+                {
+                    int[] value = (int[])Enum.GetValues(typeof(Materials));
+                    return value[i];
+                }
+            }
+
+            //should never run
+            return 0;
+
+           /* Enum.GetNames(material);
+
             switch (material)
             {
                 case "Oak":
-                    return 200;
+                    return (int)Materials.Oak;
                 case "Laminate":
                     return 100;
                 case "Pine":
@@ -93,7 +130,7 @@ namespace MegaDesk_4_ColeCannon
                     return 125;
                 default:
                     return 0;
-            }
+            }*/
         }
 
         public int getRushPrice(string rush)

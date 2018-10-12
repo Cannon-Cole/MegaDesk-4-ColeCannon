@@ -11,11 +11,19 @@ using System.Windows.Forms;
 
 namespace MegaDesk_4_ColeCannon
 {
-    public partial class SearchQuotes : Form
+    public partial class SearchDisplay : Form
     {
-        public SearchQuotes()
+        public SearchDisplay()
         {
             InitializeComponent();
+            SearchColumnDisplay.Columns.Add("Name", 125, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Date", 90, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Height", 50, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Width", 40, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Materials", 90, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Rush Days", 70, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Drawers", 70, HorizontalAlignment.Center);
+            SearchColumnDisplay.Columns.Add("Total", 70, HorizontalAlignment.Center);
         }
 
         private void SearchQuotes_Load(object sender, EventArgs e)
@@ -25,12 +33,14 @@ namespace MegaDesk_4_ColeCannon
 
             materialList.Add("Select");
 
-            foreach (var name in Enum.GetNames(typeof(Desk.Materials)))
+            foreach (var name in Enum.GetNames(typeof(Materials)))
             {
                 materialList.Add(name);
             }
 
             SearchMaterialCombo.DataSource = materialList;
+
+          
         }
 
         private void ViewQuotesBackBtn_Click(object sender, EventArgs e)
@@ -47,8 +57,9 @@ namespace MegaDesk_4_ColeCannon
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
+            SearchColumnDisplay.Items.Clear();
             StreamReader re = new StreamReader(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt");
-            SearchDisplay.Text = "";
+            
 
             try
             {
@@ -57,9 +68,10 @@ namespace MegaDesk_4_ColeCannon
                     string quote = re.ReadLine();
                     string[] quoteProperties = quote.Split(',');
 
-                    if (quoteProperties[2] == (string)SearchMaterialCombo.SelectedItem)
+                    if (quoteProperties[4] == SearchMaterialCombo.Text)
                     {
-                        SearchDisplay.Text += DeskQuote.displayQuote(quoteProperties);                       
+
+                        SearchColumnDisplay.Items.Add(new ListViewItem(new[] { quoteProperties[0], quoteProperties[1], quoteProperties[2] + "\"", quoteProperties[3] + "\"", quoteProperties[4], quoteProperties[5], quoteProperties[6], "$" + quoteProperties[7] }));
                     }
                 }
             }
@@ -74,6 +86,16 @@ namespace MegaDesk_4_ColeCannon
         }
 
         private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SearchMaterialCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -40,7 +40,7 @@ namespace MegaDesk_4_ColeCannon
 
         private void SearchQuotes_Click(object sender, EventArgs e)
         {
-            SearchQuotes searchAllQuotesForm = new SearchQuotes();
+            SearchDisplay searchAllQuotesForm = new SearchDisplay();
             searchAllQuotesForm.Tag = this;
             searchAllQuotesForm.Show(this);
             Hide();

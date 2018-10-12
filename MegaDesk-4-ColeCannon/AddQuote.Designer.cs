@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AddNewQuoteAcceptBtn = new System.Windows.Forms.Button();
             this.CancelQuoteBtn = new System.Windows.Forms.Button();
             this.HeightTitle = new System.Windows.Forms.Label();
@@ -40,10 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.RushCombo = new System.Windows.Forms.ComboBox();
-            this.DrawerUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.QuoteAdded = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DrawerUpDown)).BeginInit();
+            this.NotificationTimer = new System.Windows.Forms.Timer(this.components);
+            this.CustomerNameBox = new System.Windows.Forms.TextBox();
+            this.CustomerNameTitle = new System.Windows.Forms.Label();
+            this.DrawerSelect = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddNewQuoteAcceptBtn
@@ -73,7 +76,7 @@
             // 
             this.HeightTitle.AutoSize = true;
             this.HeightTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightTitle.Location = new System.Drawing.Point(197, 16);
+            this.HeightTitle.Location = new System.Drawing.Point(214, 111);
             this.HeightTitle.Name = "HeightTitle";
             this.HeightTitle.Size = new System.Drawing.Size(56, 20);
             this.HeightTitle.TabIndex = 5;
@@ -84,7 +87,7 @@
             // 
             this.WidthTitle.AutoSize = true;
             this.WidthTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WidthTitle.Location = new System.Drawing.Point(433, 16);
+            this.WidthTitle.Location = new System.Drawing.Point(454, 111);
             this.WidthTitle.Name = "WidthTitle";
             this.WidthTitle.Size = new System.Drawing.Size(50, 20);
             this.WidthTitle.TabIndex = 6;
@@ -94,7 +97,7 @@
             // 
             this.HeightInputErrorLabel.AutoSize = true;
             this.HeightInputErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.HeightInputErrorLabel.Location = new System.Drawing.Point(198, 92);
+            this.HeightInputErrorLabel.Location = new System.Drawing.Point(215, 187);
             this.HeightInputErrorLabel.Name = "HeightInputErrorLabel";
             this.HeightInputErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.HeightInputErrorLabel.TabIndex = 7;
@@ -105,7 +108,7 @@
             this.WidthInputErrorLabel.AutoSize = true;
             this.WidthInputErrorLabel.BackColor = System.Drawing.SystemColors.Control;
             this.WidthInputErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.WidthInputErrorLabel.Location = new System.Drawing.Point(434, 92);
+            this.WidthInputErrorLabel.Location = new System.Drawing.Point(455, 187);
             this.WidthInputErrorLabel.Name = "WidthInputErrorLabel";
             this.WidthInputErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.WidthInputErrorLabel.TabIndex = 8;
@@ -113,7 +116,7 @@
             // HeightInput
             // 
             this.HeightInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightInput.Location = new System.Drawing.Point(201, 39);
+            this.HeightInput.Location = new System.Drawing.Point(218, 134);
             this.HeightInput.Name = "HeightInput";
             this.HeightInput.Size = new System.Drawing.Size(150, 38);
             this.HeightInput.TabIndex = 9;
@@ -123,7 +126,7 @@
             // WidthInput
             // 
             this.WidthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WidthInput.Location = new System.Drawing.Point(437, 39);
+            this.WidthInput.Location = new System.Drawing.Point(461, 133);
             this.WidthInput.Name = "WidthInput";
             this.WidthInput.Size = new System.Drawing.Size(150, 38);
             this.WidthInput.TabIndex = 10;
@@ -133,7 +136,7 @@
             // 
             this.MaterialCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialCombo.FormattingEnabled = true;
-            this.MaterialCombo.Location = new System.Drawing.Point(201, 136);
+            this.MaterialCombo.Location = new System.Drawing.Point(218, 231);
             this.MaterialCombo.Name = "MaterialCombo";
             this.MaterialCombo.Size = new System.Drawing.Size(150, 39);
             this.MaterialCombo.TabIndex = 11;
@@ -144,7 +147,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(198, 113);
+            this.label1.Location = new System.Drawing.Point(215, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 12;
@@ -154,7 +157,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(435, 113);
+            this.label2.Location = new System.Drawing.Point(456, 208);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 20);
             this.label2.TabIndex = 14;
@@ -165,28 +168,21 @@
             this.RushCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RushCombo.FormattingEnabled = true;
             this.RushCombo.Items.AddRange(new object[] {
+            "None",
             "3 Days",
             "5 Days",
             "7 Days"});
-            this.RushCombo.Location = new System.Drawing.Point(437, 136);
+            this.RushCombo.Location = new System.Drawing.Point(458, 231);
             this.RushCombo.Name = "RushCombo";
             this.RushCombo.Size = new System.Drawing.Size(150, 39);
             this.RushCombo.TabIndex = 13;
             this.RushCombo.Text = "Select";
             // 
-            // DrawerUpDown
-            // 
-            this.DrawerUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DrawerUpDown.Location = new System.Drawing.Point(201, 240);
-            this.DrawerUpDown.Name = "DrawerUpDown";
-            this.DrawerUpDown.Size = new System.Drawing.Size(150, 38);
-            this.DrawerUpDown.TabIndex = 15;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(198, 217);
+            this.label3.Location = new System.Drawing.Point(457, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 16;
@@ -198,21 +194,65 @@
             this.QuoteAdded.AutoSize = true;
             this.QuoteAdded.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuoteAdded.ForeColor = System.Drawing.Color.Green;
-            this.QuoteAdded.Location = new System.Drawing.Point(472, 286);
+            this.QuoteAdded.Location = new System.Drawing.Point(659, 346);
             this.QuoteAdded.Name = "QuoteAdded";
             this.QuoteAdded.Size = new System.Drawing.Size(129, 25);
             this.QuoteAdded.TabIndex = 17;
             this.QuoteAdded.Text = "Quote Added";
             this.QuoteAdded.Visible = false;
             // 
+            // NotificationTimer
+            // 
+            this.NotificationTimer.Interval = 2000;
+            // 
+            // CustomerNameBox
+            // 
+            this.CustomerNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerNameBox.Location = new System.Drawing.Point(219, 47);
+            this.CustomerNameBox.Name = "CustomerNameBox";
+            this.CustomerNameBox.Size = new System.Drawing.Size(150, 38);
+            this.CustomerNameBox.TabIndex = 18;
+            // 
+            // CustomerNameTitle
+            // 
+            this.CustomerNameTitle.AutoSize = true;
+            this.CustomerNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerNameTitle.Location = new System.Drawing.Point(215, 24);
+            this.CustomerNameTitle.Name = "CustomerNameTitle";
+            this.CustomerNameTitle.Size = new System.Drawing.Size(124, 20);
+            this.CustomerNameTitle.TabIndex = 19;
+            this.CustomerNameTitle.Text = "Customer Name";
+            // 
+            // DrawerSelect
+            // 
+            this.DrawerSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DrawerSelect.FormattingEnabled = true;
+            this.DrawerSelect.Items.AddRange(new object[] {
+            "Select",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.DrawerSelect.Location = new System.Drawing.Point(461, 47);
+            this.DrawerSelect.Name = "DrawerSelect";
+            this.DrawerSelect.Size = new System.Drawing.Size(150, 39);
+            this.DrawerSelect.TabIndex = 20;
+            this.DrawerSelect.Text = "Select";
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DrawerSelect);
+            this.Controls.Add(this.CustomerNameTitle);
+            this.Controls.Add(this.CustomerNameBox);
             this.Controls.Add(this.QuoteAdded);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.DrawerUpDown);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.RushCombo);
             this.Controls.Add(this.label1);
@@ -228,7 +268,6 @@
             this.Name = "AddQuote";
             this.Text = "AddQuote";
             this.Load += new System.EventHandler(this.AddQuote_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DrawerUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,8 +287,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox RushCombo;
-        private System.Windows.Forms.NumericUpDown DrawerUpDown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label QuoteAdded;
+        private System.Windows.Forms.Timer NotificationTimer;
+        private System.Windows.Forms.TextBox CustomerNameBox;
+        private System.Windows.Forms.Label CustomerNameTitle;
+        private System.Windows.Forms.ComboBox DrawerSelect;
     }
 }

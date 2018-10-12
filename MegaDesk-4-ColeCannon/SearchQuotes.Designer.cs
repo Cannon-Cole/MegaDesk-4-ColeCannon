@@ -1,6 +1,6 @@
 ﻿namespace MegaDesk_4_ColeCannon
 {
-    partial class SearchQuotes
+    partial class SearchDisplay
     {
         /// <summary>
         /// Required designer variable.
@@ -33,15 +33,15 @@
             this.SearchTitle = new System.Windows.Forms.Label();
             this.SearchMaterialCombo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.SearchDisplay = new System.Windows.Forms.RichTextBox();
+            this.SearchColumnDisplay = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // ViewQuotesBackBtn
             // 
             this.ViewQuotesBackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ViewQuotesBackBtn.Location = new System.Drawing.Point(12, 280);
+            this.ViewQuotesBackBtn.Location = new System.Drawing.Point(3, 280);
             this.ViewQuotesBackBtn.Name = "ViewQuotesBackBtn";
-            this.ViewQuotesBackBtn.Size = new System.Drawing.Size(195, 50);
+            this.ViewQuotesBackBtn.Size = new System.Drawing.Size(179, 50);
             this.ViewQuotesBackBtn.TabIndex = 3;
             this.ViewQuotesBackBtn.Text = "&Back";
             this.ViewQuotesBackBtn.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@
             // SearchBtn
             // 
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.Location = new System.Drawing.Point(13, 209);
+            this.SearchBtn.Location = new System.Drawing.Point(3, 209);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(195, 65);
+            this.SearchBtn.Size = new System.Drawing.Size(178, 65);
             this.SearchBtn.TabIndex = 4;
             this.SearchBtn.Text = "&Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -72,43 +72,44 @@
             // 
             this.SearchMaterialCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchMaterialCombo.FormattingEnabled = true;
-            this.SearchMaterialCombo.Location = new System.Drawing.Point(13, 95);
+            this.SearchMaterialCombo.Location = new System.Drawing.Point(4, 95);
             this.SearchMaterialCombo.Name = "SearchMaterialCombo";
-            this.SearchMaterialCombo.Size = new System.Drawing.Size(195, 39);
+            this.SearchMaterialCombo.Size = new System.Drawing.Size(178, 39);
             this.SearchMaterialCombo.TabIndex = 12;
             this.SearchMaterialCombo.Text = "Select";
+            this.SearchMaterialCombo.SelectedIndexChanged += new System.EventHandler(this.SearchMaterialCombo_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 50);
+            this.label3.Location = new System.Drawing.Point(-2, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 42);
             this.label3.TabIndex = 13;
             this.label3.Text = "Material";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
+            // SearchColumnDisplay
+            // 
+            this.SearchColumnDisplay.Location = new System.Drawing.Point(187, 95);
+            this.SearchColumnDisplay.Name = "SearchColumnDisplay";
+            this.SearchColumnDisplay.Size = new System.Drawing.Size(611, 326);
+            this.SearchColumnDisplay.TabIndex = 14;
+            this.SearchColumnDisplay.UseCompatibleStateImageBehavior = false;
+            this.SearchColumnDisplay.View = System.Windows.Forms.View.Details;
+            // 
             // SearchDisplay
-            // 
-            this.SearchDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchDisplay.Location = new System.Drawing.Point(213, 95);
-            this.SearchDisplay.Name = "SearchDisplay";
-            this.SearchDisplay.Size = new System.Drawing.Size(575, 235);
-            this.SearchDisplay.TabIndex = 11;
-            this.SearchDisplay.Text = "";
-            // 
-            // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.SearchDisplay);
+            this.Controls.Add(this.SearchColumnDisplay);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SearchMaterialCombo);
             this.Controls.Add(this.SearchTitle);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.ViewQuotesBackBtn);
-            this.Name = "SearchQuotes";
+            this.Name = "SearchDisplay";
             this.Text = "SearchQuotes";
             this.Load += new System.EventHandler(this.SearchQuotes_Load);
             this.ResumeLayout(false);
@@ -122,6 +123,6 @@
         private System.Windows.Forms.Label SearchTitle;
         private System.Windows.Forms.ComboBox SearchMaterialCombo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox SearchDisplay;
+        private System.Windows.Forms.ListView SearchColumnDisplay;
     }
 }

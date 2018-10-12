@@ -13,7 +13,15 @@ namespace MegaDesk_4_ColeCannon
         public const int MIN_HEIGHT = 12;
         public const int MAX_HEIGHT = 48;
 
-        public enum Materials { Oak, Laminate, Pine, Rosewood, Veneer };
+        
 
     }
+    public enum Materials
+    {
+        Oak = 200,
+        Laminate = 100,
+        Pine = 50,
+        Rosewood = 300,
+        Veneer = 125
+    };
 }
