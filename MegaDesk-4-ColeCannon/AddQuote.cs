@@ -21,20 +21,37 @@ namespace MegaDesk_4_ColeCannon
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
-        {       
+        {
 
-            materialList.Add("Select");
-
+            materialList.Insert(0, "Select");
+          
             foreach (var name in Enum.GetNames(typeof(Materials)))
             {
                 materialList.Add(name);
+                MaterialCombo.Items.Add(name);
             }
 
-            MaterialCombo.DataSource = materialList;
+            //MaterialCombo.DataSource = materialList;
         }
 
         private void AddNewQuoteAccept_Click(object sender, EventArgs e)
         {
+            bool validated = false;
+
+            bool name = checkName();
+            bool drawers = checkDrawers();
+            bool height = checkHeight();
+            bool width = checkWidth();
+            bool material = checkMaterial();
+            bool rush = checkRush();
+
+            if(name && drawers && height && width && material && rush)
+            {
+                validated = true;
+            }
+
+            if(validated)
+            {
             StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
             try
             {
@@ -49,7 +66,7 @@ namespace MegaDesk_4_ColeCannon
                     rushtime = RushCombo.Text.Split(null)[0];
                 }
 
-                wr.WriteLine(CustomerNameBox.Text + "," + DateTime.Now.ToString("dd/MM/yyyy") + "," + HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + rushtime + "," + DrawerSelect.Text + "," + getPrice());
+                wr.WriteLine(CustomerNameBox.Text + "," + DateTime.Now.ToString("dd/MM/yyyy") + "," + HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + rushtime + "," + DrawerCombo.Text + "," + getPrice());
 
                 QuoteAdded.Visible = true;
               
@@ -65,6 +82,7 @@ namespace MegaDesk_4_ColeCannon
             {
                 wr.Close();
             }
+            }
         }
 
         private void NotificationTimer_Tick(object sender, EventArgs e)
@@ -78,7 +96,7 @@ namespace MegaDesk_4_ColeCannon
             price += surfaceAreaPrice(HeightInput.Text, HeightInput.Text);
             price += getMaterialPrice(MaterialCombo.Text);
             price += getRushPrice(RushCombo.Text);
-            price += getDrawerPrice((int.Parse(DrawerSelect.Text)));
+            price += getDrawerPrice((int.Parse(DrawerCombo.Text)));
 
             return price;
         }
@@ -189,6 +207,147 @@ namespace MegaDesk_4_ColeCannon
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool checkName()
+        {
+            if (CustomerNameBox.Text.Length  < 1)
+            {
+                CustomerNameErrorLabel.Text = "Must enter a name";
+                return false;
+            }
+            else
+            {
+                CustomerNameErrorLabel.Text = "";
+                return true;
+            }
+        }
+
+        private bool checkHeight()
+        {
+            string errorMessage = "Must be between " + Desk.MIN_HEIGHT + " and " + Desk.MAX_HEIGHT;
+            int heightConvert;
+            int height = 0;
+
+            try
+            {
+                heightConvert = System.Convert.ToInt32(HeightInput.Text);
+                height = heightConvert;              
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                HeightInputErrorLabel.Text = "Enter an integer";
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                HeightInputErrorLabel.Text = errorMessage;
+            }
+            finally
+            {
+                HeightInputErrorLabel.Text = errorMessage;
+                
+            }
+
+            if (height > Desk.MAX_HEIGHT)
+            {
+                HeightInputErrorLabel.Text = errorMessage;
+                return false;
+            }
+            else if (height < Desk.MIN_HEIGHT)
+            {
+                HeightInputErrorLabel.Text = errorMessage;
+                return false;
+            }
+            else
+            {
+                HeightInputErrorLabel.Text = "";
+                return true;
+            }
+        }
+
+        private bool checkWidth()
+        {
+            string errorMessage = "Must be between " + Desk.MIN_WIDTH + " and " + Desk.MAX_WIDTH;
+            int widthConvert;
+            int width = 0;
+
+            try
+            {
+                widthConvert = System.Convert.ToInt32(WidthInput.Text);
+                width = widthConvert;
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                WidthInputErrorLabel.Text = errorMessage;
+            }
+
+            if (width > Desk.MAX_WIDTH)
+            {
+                WidthInputErrorLabel.Text = errorMessage;
+                return false;
+            }
+            else if (width < Desk.MIN_WIDTH)
+            {
+                WidthInputErrorLabel.Text = errorMessage;
+                return false;
+            }
+            else
+            {
+                WidthInputErrorLabel.Text = "";
+                return true;
+            }
+        }
+
+        private bool checkDrawers()
+        {
+            if(DrawerCombo.Text == "Select")
+            {
+                DrawerErrorLabel.Text = "Must select a value";
+                return false;
+            }
+            else
+            {
+                DrawerErrorLabel.Text = "";
+                return true;
+            }
+        }
+
+        private bool checkMaterial()
+        {
+            if (MaterialCombo.Text == "Select")
+            {
+                MaterialErrorLabel.Text = "Must select a material";
+                return false;
+            }
+            else
+            {
+                MaterialErrorLabel.Text = "";
+                return true;
+            }
+        }
+
+        private bool checkRush()
+        {
+            if (RushCombo.Text == "Select")
+            {
+                RushErrorLabel.Text = "Must select a rush order option";
+                return false;
+            }
+            else
+            {
+                RushErrorLabel.Text = "";
+                return true;
+            }
         }
 
         private void HeightInputValidation(object sender, CancelEventArgs e)
@@ -311,6 +470,16 @@ namespace MegaDesk_4_ColeCannon
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RushCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaterialChanged(object sender, EventArgs e)
+        {
+            //MaterialCombo.Items.Remove("Select");
         }
     }
 }

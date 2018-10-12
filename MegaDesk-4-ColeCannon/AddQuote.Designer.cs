@@ -46,7 +46,11 @@
             this.NotificationTimer = new System.Windows.Forms.Timer(this.components);
             this.CustomerNameBox = new System.Windows.Forms.TextBox();
             this.CustomerNameTitle = new System.Windows.Forms.Label();
-            this.DrawerSelect = new System.Windows.Forms.ComboBox();
+            this.DrawerCombo = new System.Windows.Forms.ComboBox();
+            this.DrawerErrorLabel = new System.Windows.Forms.Label();
+            this.MaterialErrorLabel = new System.Windows.Forms.Label();
+            this.RushErrorLabel = new System.Windows.Forms.Label();
+            this.CustomerNameErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddNewQuoteAcceptBtn
@@ -97,7 +101,7 @@
             // 
             this.HeightInputErrorLabel.AutoSize = true;
             this.HeightInputErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.HeightInputErrorLabel.Location = new System.Drawing.Point(215, 187);
+            this.HeightInputErrorLabel.Location = new System.Drawing.Point(222, 181);
             this.HeightInputErrorLabel.Name = "HeightInputErrorLabel";
             this.HeightInputErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.HeightInputErrorLabel.TabIndex = 7;
@@ -108,7 +112,7 @@
             this.WidthInputErrorLabel.AutoSize = true;
             this.WidthInputErrorLabel.BackColor = System.Drawing.SystemColors.Control;
             this.WidthInputErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.WidthInputErrorLabel.Location = new System.Drawing.Point(455, 187);
+            this.WidthInputErrorLabel.Location = new System.Drawing.Point(465, 180);
             this.WidthInputErrorLabel.Name = "WidthInputErrorLabel";
             this.WidthInputErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.WidthInputErrorLabel.TabIndex = 8;
@@ -120,8 +124,6 @@
             this.HeightInput.Name = "HeightInput";
             this.HeightInput.Size = new System.Drawing.Size(150, 38);
             this.HeightInput.TabIndex = 9;
-            this.HeightInput.TextChanged += new System.EventHandler(this.HeightInput_TextChanged);
-            this.HeightInput.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInputValidation);
             // 
             // WidthInput
             // 
@@ -130,7 +132,6 @@
             this.WidthInput.Name = "WidthInput";
             this.WidthInput.Size = new System.Drawing.Size(150, 38);
             this.WidthInput.TabIndex = 10;
-            this.WidthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WidthValidation);
             // 
             // MaterialCombo
             // 
@@ -141,7 +142,6 @@
             this.MaterialCombo.Size = new System.Drawing.Size(150, 39);
             this.MaterialCombo.TabIndex = 11;
             this.MaterialCombo.Text = "Select";
-            this.MaterialCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -177,6 +177,7 @@
             this.RushCombo.Size = new System.Drawing.Size(150, 39);
             this.RushCombo.TabIndex = 13;
             this.RushCombo.Text = "Select";
+            this.RushCombo.SelectedIndexChanged += new System.EventHandler(this.RushCombo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -223,12 +224,11 @@
             this.CustomerNameTitle.TabIndex = 19;
             this.CustomerNameTitle.Text = "Customer Name";
             // 
-            // DrawerSelect
+            // DrawerCombo
             // 
-            this.DrawerSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DrawerSelect.FormattingEnabled = true;
-            this.DrawerSelect.Items.AddRange(new object[] {
-            "Select",
+            this.DrawerCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DrawerCombo.FormattingEnabled = true;
+            this.DrawerCombo.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -237,18 +237,58 @@
             "5",
             "6",
             "7"});
-            this.DrawerSelect.Location = new System.Drawing.Point(461, 47);
-            this.DrawerSelect.Name = "DrawerSelect";
-            this.DrawerSelect.Size = new System.Drawing.Size(150, 39);
-            this.DrawerSelect.TabIndex = 20;
-            this.DrawerSelect.Text = "Select";
+            this.DrawerCombo.Location = new System.Drawing.Point(461, 47);
+            this.DrawerCombo.Name = "DrawerCombo";
+            this.DrawerCombo.Size = new System.Drawing.Size(150, 39);
+            this.DrawerCombo.TabIndex = 20;
+            this.DrawerCombo.Text = "Select";
+            // 
+            // DrawerErrorLabel
+            // 
+            this.DrawerErrorLabel.AutoSize = true;
+            this.DrawerErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.DrawerErrorLabel.Location = new System.Drawing.Point(465, 96);
+            this.DrawerErrorLabel.Name = "DrawerErrorLabel";
+            this.DrawerErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.DrawerErrorLabel.TabIndex = 21;
+            // 
+            // MaterialErrorLabel
+            // 
+            this.MaterialErrorLabel.AutoSize = true;
+            this.MaterialErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.MaterialErrorLabel.Location = new System.Drawing.Point(221, 277);
+            this.MaterialErrorLabel.Name = "MaterialErrorLabel";
+            this.MaterialErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.MaterialErrorLabel.TabIndex = 22;
+            // 
+            // RushErrorLabel
+            // 
+            this.RushErrorLabel.AutoSize = true;
+            this.RushErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.RushErrorLabel.Location = new System.Drawing.Point(463, 274);
+            this.RushErrorLabel.Name = "RushErrorLabel";
+            this.RushErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.RushErrorLabel.TabIndex = 23;
+            // 
+            // CustomerNameErrorLabel
+            // 
+            this.CustomerNameErrorLabel.AutoSize = true;
+            this.CustomerNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.CustomerNameErrorLabel.Location = new System.Drawing.Point(223, 89);
+            this.CustomerNameErrorLabel.Name = "CustomerNameErrorLabel";
+            this.CustomerNameErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.CustomerNameErrorLabel.TabIndex = 24;
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.DrawerSelect);
+            this.Controls.Add(this.CustomerNameErrorLabel);
+            this.Controls.Add(this.RushErrorLabel);
+            this.Controls.Add(this.MaterialErrorLabel);
+            this.Controls.Add(this.DrawerErrorLabel);
+            this.Controls.Add(this.DrawerCombo);
             this.Controls.Add(this.CustomerNameTitle);
             this.Controls.Add(this.CustomerNameBox);
             this.Controls.Add(this.QuoteAdded);
@@ -292,6 +332,10 @@
         private System.Windows.Forms.Timer NotificationTimer;
         private System.Windows.Forms.TextBox CustomerNameBox;
         private System.Windows.Forms.Label CustomerNameTitle;
-        private System.Windows.Forms.ComboBox DrawerSelect;
+        private System.Windows.Forms.ComboBox DrawerCombo;
+        private System.Windows.Forms.Label DrawerErrorLabel;
+        private System.Windows.Forms.Label MaterialErrorLabel;
+        private System.Windows.Forms.Label RushErrorLabel;
+        private System.Windows.Forms.Label CustomerNameErrorLabel;
     }
 }
