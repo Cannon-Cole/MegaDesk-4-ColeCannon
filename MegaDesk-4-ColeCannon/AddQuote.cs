@@ -52,17 +52,13 @@ namespace MegaDesk_4_ColeCannon
 
             if(validated)
             {
-            StreamWriter wr = new StreamWriter(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt", append: true);
+            StreamWriter wr = new StreamWriter(@"quotes.txt", append: true);
             try
             {
                 string rushtime = "None";
 
-                if (RushCombo.Text == "None")
-                {
-                    rushtime = "None";
-                }
-                else
-                {
+                if (RushCombo.Text != "None")
+                { 
                     rushtime = RushCombo.Text.Split(null)[0];
                 }
 
@@ -153,8 +149,16 @@ namespace MegaDesk_4_ColeCannon
 
         public int getRushPrice(string rush)
         {
+            int days;
 
-            int days = Int32.Parse(rush.Split(null)[0]);
+            if (rush != "None")
+            {
+                days = Int32.Parse(rush.Split(null)[0]);
+            }
+            else
+            {
+                days = 0;
+            }
 
             int[,] rushCost = {
                 { 60, 70, 80 },
@@ -310,7 +314,7 @@ namespace MegaDesk_4_ColeCannon
 
         private bool checkDrawers()
         {
-            if(DrawerCombo.Text == "Select")
+            if(DrawerCombo.Text == "")
             {
                 DrawerErrorLabel.Text = "Must select a value";
                 return false;
@@ -324,7 +328,7 @@ namespace MegaDesk_4_ColeCannon
 
         private bool checkMaterial()
         {
-            if (MaterialCombo.Text == "Select")
+            if (MaterialCombo.Text == "")
             {
                 MaterialErrorLabel.Text = "Must select a material";
                 return false;
@@ -338,7 +342,7 @@ namespace MegaDesk_4_ColeCannon
 
         private bool checkRush()
         {
-            if (RushCombo.Text == "Select")
+            if (RushCombo.Text == "")
             {
                 RushErrorLabel.Text = "Must select a rush order option";
                 return false;
@@ -480,6 +484,16 @@ namespace MegaDesk_4_ColeCannon
         private void MaterialChanged(object sender, EventArgs e)
         {
             //MaterialCombo.Items.Remove("Select");
+        }
+
+        private void HeightInput_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WidthInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -58,9 +58,8 @@ namespace MegaDesk_4_ColeCannon
         private void SearchBtn_Click(object sender, EventArgs e)
         {
             SearchColumnDisplay.Items.Clear();
-            StreamReader re = new StreamReader(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt");
+            StreamReader re = new StreamReader(@"quotes.txt");
             
-
             try
             {
                 while (!re.EndOfStream)

@@ -28,7 +28,7 @@ namespace MegaDesk_4_ColeCannon
 
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
-            StreamReader re = new StreamReader(@"C: \Users\Cliff\source\repos\MegaDesk-4-ColeCannon\quotes.txt");
+            StreamReader re = new StreamReader(@"quotes.txt");
             ViewAllDisplay.Items.Clear();
 
             try

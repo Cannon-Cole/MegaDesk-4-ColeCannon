@@ -59,7 +59,7 @@
             this.AddNewQuoteAcceptBtn.Location = new System.Drawing.Point(437, 326);
             this.AddNewQuoteAcceptBtn.Name = "AddNewQuoteAcceptBtn";
             this.AddNewQuoteAcceptBtn.Size = new System.Drawing.Size(195, 65);
-            this.AddNewQuoteAcceptBtn.TabIndex = 1;
+            this.AddNewQuoteAcceptBtn.TabIndex = 7;
             this.AddNewQuoteAcceptBtn.Text = "&Add New Quote";
             this.AddNewQuoteAcceptBtn.UseVisualStyleBackColor = true;
             this.AddNewQuoteAcceptBtn.Click += new System.EventHandler(this.AddNewQuoteAccept_Click);
@@ -71,7 +71,7 @@
             this.CancelQuoteBtn.Name = "CancelQuoteBtn";
             this.CancelQuoteBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CancelQuoteBtn.Size = new System.Drawing.Size(195, 50);
-            this.CancelQuoteBtn.TabIndex = 2;
+            this.CancelQuoteBtn.TabIndex = 8;
             this.CancelQuoteBtn.Text = "&Cancel";
             this.CancelQuoteBtn.UseVisualStyleBackColor = true;
             this.CancelQuoteBtn.Click += new System.EventHandler(this.CancelQuote_Click);
@@ -123,7 +123,8 @@
             this.HeightInput.Location = new System.Drawing.Point(218, 134);
             this.HeightInput.Name = "HeightInput";
             this.HeightInput.Size = new System.Drawing.Size(150, 38);
-            this.HeightInput.TabIndex = 9;
+            this.HeightInput.TabIndex = 3;
+            this.HeightInput.TextChanged += new System.EventHandler(this.HeightInput_TextChanged_1);
             // 
             // WidthInput
             // 
@@ -131,17 +132,18 @@
             this.WidthInput.Location = new System.Drawing.Point(461, 133);
             this.WidthInput.Name = "WidthInput";
             this.WidthInput.Size = new System.Drawing.Size(150, 38);
-            this.WidthInput.TabIndex = 10;
+            this.WidthInput.TabIndex = 4;
+            this.WidthInput.TextChanged += new System.EventHandler(this.WidthInput_TextChanged);
             // 
             // MaterialCombo
             // 
+            this.MaterialCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialCombo.FormattingEnabled = true;
             this.MaterialCombo.Location = new System.Drawing.Point(218, 231);
             this.MaterialCombo.Name = "MaterialCombo";
             this.MaterialCombo.Size = new System.Drawing.Size(150, 39);
-            this.MaterialCombo.TabIndex = 11;
-            this.MaterialCombo.Text = "Select";
+            this.MaterialCombo.TabIndex = 5;
             // 
             // label1
             // 
@@ -165,6 +167,7 @@
             // 
             // RushCombo
             // 
+            this.RushCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RushCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RushCombo.FormattingEnabled = true;
             this.RushCombo.Items.AddRange(new object[] {
@@ -175,8 +178,7 @@
             this.RushCombo.Location = new System.Drawing.Point(458, 231);
             this.RushCombo.Name = "RushCombo";
             this.RushCombo.Size = new System.Drawing.Size(150, 39);
-            this.RushCombo.TabIndex = 13;
-            this.RushCombo.Text = "Select";
+            this.RushCombo.TabIndex = 6;
             this.RushCombo.SelectedIndexChanged += new System.EventHandler(this.RushCombo_SelectedIndexChanged);
             // 
             // label3
@@ -212,7 +214,7 @@
             this.CustomerNameBox.Location = new System.Drawing.Point(219, 47);
             this.CustomerNameBox.Name = "CustomerNameBox";
             this.CustomerNameBox.Size = new System.Drawing.Size(150, 38);
-            this.CustomerNameBox.TabIndex = 18;
+            this.CustomerNameBox.TabIndex = 1;
             // 
             // CustomerNameTitle
             // 
@@ -226,6 +228,7 @@
             // 
             // DrawerCombo
             // 
+            this.DrawerCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DrawerCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DrawerCombo.FormattingEnabled = true;
             this.DrawerCombo.Items.AddRange(new object[] {
@@ -240,8 +243,7 @@
             this.DrawerCombo.Location = new System.Drawing.Point(461, 47);
             this.DrawerCombo.Name = "DrawerCombo";
             this.DrawerCombo.Size = new System.Drawing.Size(150, 39);
-            this.DrawerCombo.TabIndex = 20;
-            this.DrawerCombo.Text = "Select";
+            this.DrawerCombo.TabIndex = 2;
             // 
             // DrawerErrorLabel
             // 
