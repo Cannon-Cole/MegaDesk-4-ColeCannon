@@ -85,7 +85,6 @@
             this.HeightTitle.Size = new System.Drawing.Size(56, 20);
             this.HeightTitle.TabIndex = 5;
             this.HeightTitle.Text = "Height";
-            this.HeightTitle.Click += new System.EventHandler(this.HeightTitle_Click);
             // 
             // WidthTitle
             // 
@@ -180,7 +179,6 @@
             this.RushCombo.Name = "RushCombo";
             this.RushCombo.Size = new System.Drawing.Size(150, 39);
             this.RushCombo.TabIndex = 6;
-            this.RushCombo.SelectedIndexChanged += new System.EventHandler(this.RushCombo_SelectedIndexChanged);
             this.RushCombo.TextChanged += new System.EventHandler(this.CheckValidation);
             // 
             // label3
@@ -192,7 +190,6 @@
             this.label3.Size = new System.Drawing.Size(146, 20);
             this.label3.TabIndex = 16;
             this.label3.Text = "Number of Drawers";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // QuoteAdded
             // 

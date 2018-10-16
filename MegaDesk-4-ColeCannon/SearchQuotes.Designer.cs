@@ -66,7 +66,6 @@
             this.SearchTitle.Size = new System.Drawing.Size(106, 42);
             this.SearchTitle.TabIndex = 0;
             this.SearchTitle.Text = "Search";
-            this.SearchTitle.Click += new System.EventHandler(this.label3_Click);
             // 
             // SearchMaterialCombo
             // 
@@ -77,7 +76,6 @@
             this.SearchMaterialCombo.Size = new System.Drawing.Size(178, 39);
             this.SearchMaterialCombo.TabIndex = 12;
             this.SearchMaterialCombo.Text = "Select";
-            this.SearchMaterialCombo.SelectedIndexChanged += new System.EventHandler(this.SearchMaterialCombo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -87,7 +85,6 @@
             this.label3.Size = new System.Drawing.Size(133, 42);
             this.label3.TabIndex = 13;
             this.label3.Text = "Material";
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // SearchColumnDisplay
             // 

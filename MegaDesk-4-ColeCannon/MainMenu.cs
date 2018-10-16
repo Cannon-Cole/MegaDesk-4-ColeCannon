@@ -19,7 +19,7 @@ namespace MegaDesk_4_ColeCannon
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            //Necessary
         }
 
         private void ViewQuotes_Click(object sender, EventArgs e)

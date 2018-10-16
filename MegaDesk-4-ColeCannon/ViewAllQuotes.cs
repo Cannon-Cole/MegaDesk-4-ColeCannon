@@ -58,15 +58,5 @@ namespace MegaDesk_4_ColeCannon
             mainMenu.Show();
             Close();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SearchDisplay_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

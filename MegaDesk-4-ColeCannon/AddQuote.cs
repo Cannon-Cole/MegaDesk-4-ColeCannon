@@ -50,7 +50,7 @@ namespace MegaDesk_4_ColeCannon
                     rushtime = RushCombo.Text.Split(null)[0];
                 }
 
-                wr.WriteLine(CustomerNameBox.Text + "," + DateTime.Now.ToString("dd/MM/yyyy") + "," + HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + rushtime + "," + DrawerCombo.Text + "," + getPrice());
+                wr.WriteLine(CustomerNameBox.Text + "," + DateTime.Now.ToString("dd/MM/yyyy") + "," + HeightInput.Text + "," + WidthInput.Text + "," + MaterialCombo.Text + "," + rushtime + "," + DrawerCombo.Text + "," + DeskQuote.getPrice(int.Parse(HeightInput.Text), int.Parse(WidthInput.Text), MaterialCombo.Text, RushCombo.Text, int.Parse(DrawerCombo.Text)));
 
                 QuoteAdded.Visible = true;
               
@@ -93,120 +93,7 @@ namespace MegaDesk_4_ColeCannon
             QuoteAdded.Visible = false;
         }
 
-        public int getPrice()
-        {
-            int price = 200;
-            price += surfaceAreaPrice(HeightInput.Text, HeightInput.Text);
-            price += getMaterialPrice(MaterialCombo.Text);
-            price += getRushPrice(RushCombo.Text);
-            price += getDrawerPrice((int.Parse(DrawerCombo.Text)));
-
-            return price;
-        }
-
-        public int calculateSurfaceArea(string height, string width)
-        {
-            return Int32.Parse(height) * Int32.Parse(width);
-        }
-
-        public int surfaceAreaPrice(string height, string width)
-        {
-            int surfaceArea = calculateSurfaceArea(height, width);
-
-            if (surfaceArea - 1000 > 0)
-                return surfaceArea - 1000;
-            else
-                return 0;
-        }
-
-        public int getMaterialPrice(string material)
-        {
-            //returns price of material selected
-            string[] names = Enum.GetNames(typeof(Materials));
-            for (int i = 0; i < names.Length; i++)
-            {
-                if(material == names[i])
-                {
-                    int[] value = (int[])Enum.GetValues(typeof(Materials));
-                    return value[i];
-                }
-            }
-
-            //should never run
-            return 0;
-
-           /* Enum.GetNames(material);
-
-            switch (material)
-            {
-                case "Oak":
-                    return (int)Materials.Oak;
-                case "Laminate":
-                    return 100;
-                case "Pine":
-                    return 50;
-                case "Rosewood":
-                    return 300;
-                case "Veneer":
-                    return 125;
-                default:
-                    return 0;
-            }*/
-        }
-
-        public int getRushPrice(string rush)
-        {
-            int days;
-
-            if (rush != "None")
-            {
-                days = Int32.Parse(rush.Split(null)[0]);
-            }
-            else
-            {
-                days = 0;
-            }
-
-            int[,] rushCost = {
-                { 60, 70, 80 },
-                { 40, 50, 60 },
-                { 30, 35, 40 }
-            };
-
-            int index;
-            int area = calculateSurfaceArea(HeightInput.Text, HeightInput.Text);
-
-            if (area > 2000)
-            {
-                index = 2;
-            }
-            else if (area > 1000)
-            {
-                index = 1;
-            }
-            else
-            {
-                index = 0;
-            }
-
-            switch (days)
-            {
-                case 3:
-                    return rushCost[0, index];
-                case 5:
-                    return rushCost[1, index]; ;
-                case 7:
-                    return rushCost[2, index]; ;
-                default:
-                    return 0;
-            }
-
-        }
-
-        public int getDrawerPrice(int numOfDrawers)
-        {
-            return numOfDrawers * 50;
-        }
+        
 
         private void CancelQuote_Click(object sender, EventArgs e)
         {
@@ -461,31 +348,6 @@ namespace MegaDesk_4_ColeCannon
             {
                 WidthInputErrorLabel.Text = "";
             }
-        }
-
-        private void HeightInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HeightTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RushCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void MaterialChanged(object sender, EventArgs e)

@@ -38,9 +38,7 @@ namespace MegaDesk_4_ColeCannon
                 materialList.Add(name);
             }
 
-            SearchMaterialCombo.DataSource = materialList;
-
-          
+            SearchMaterialCombo.DataSource = materialList;         
         }
 
         private void ViewQuotesBackBtn_Click(object sender, EventArgs e)
@@ -48,11 +46,6 @@ namespace MegaDesk_4_ColeCannon
             var mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             Close();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -82,21 +75,6 @@ namespace MegaDesk_4_ColeCannon
             {
                 re.Close();
             }
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void SearchMaterialCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
